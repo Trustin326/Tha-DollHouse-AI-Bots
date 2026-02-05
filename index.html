@@ -279,7 +279,14 @@ document.getElementById("botCard").src=
 document.getElementById("demoModal").style.display="flex";
 }
 
-function runDemo(){
+function runDemo(async function runLive(){
+
+const prompt = document.getElementById("userInput").value
+const res = await LIVE_AI.runLive(prompt)
+document.getElementById("output").innerText = res
+
+}
+){
 document.getElementById("output").innerText=
 currentBot+" result: " + document.getElementById("userInput").value;
 }
