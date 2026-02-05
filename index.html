@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tha DollHouse AI Bots</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Inter, sans-serif;
+background:linear-gradient(120deg,#020617,#021c22,#041018);
+color:white;
+}
+
+/* HEADER */
+.hero{
+text-align:center;
+padding:80px 20px 40px;
+}
+
+.hero h1{
+font-family:"Playfair Display",serif;
+font-size:72px;
+letter-spacing:4px;
+background:linear-gradient(90deg,#fff,#9ad9db,#f0d38a);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.desc-box{
+max-width:900px;
+margin:auto;
+padding:30px;
+border-radius:20px;
+background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+backdrop-filter:blur(12px);
+box-shadow:0 0 40px rgba(0,0,0,.4);
+font-size:20px;
+line-height:1.6;
+}
+
+/* LOGIN */
+.login-bar{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-top:25px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+}
+
+.login-btn{background:#e5c76b;color:black;}
+.owner-btn{background:#0ea5a5;color:white;}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+padding:60px;
+}
+
+.card{
+background:linear-gradient(160deg,#0a0f18,#0c2230);
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 10px 40px rgba(0,0,0,.5);
+cursor:pointer;
+}
+
+.card img{
+width:100%;
+}
+
+/* DEMO MODAL */
+.demo-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.demo-inner{
+width:90%;
+max-width:1200px;
+background:#0a1620;
+border-radius:24px;
+display:grid;
+grid-template-columns:1fr 420px;
+overflow:hidden;
+}
+
+/* LEFT PANEL */
+.demo-left{
+padding:40px;
+}
+
+.demo-left h2{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.demo-box{
+background:#07131b;
+padding:20px;
+border-radius:14px;
+margin-top:20px;
+}
+
+textarea{
+width:100%;
+height:90px;
+background:#020617;
+border:1px solid #1e293b;
+color:white;
+padding:10px;
+border-radius:10px;
+}
+
+/* RIGHT PANEL */
+.demo-right{
+background:#061019;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.demo-right img{
+width:90%;
+border-radius:18px;
+}
+
+/* DASHBOARD */
+.dashboard{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#0c1620;
+padding:40px;
+border-radius:20px;
+display:none;
+width:600px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<h1>THA DOLLHOUSE</h1>
+
+<div class="desc-box">
+Welcome to Tha DollHouse AI Bot Collection — your exclusive suite of intelligent digital tools crafted to help you work smarter, automate faster, and earn from anywhere.<br><br>
+✨ Tap any pricing card to open a live demo page. Each bot is just $39.
+</div>
+
+<div class="login-bar">
+<button class="login-btn" onclick="login()">Login</button>
+<button class="owner-btn" onclick="ownerLogin()">Owner Login</button>
+<button onclick="openDash()">Dashboard</button>
+</div>
+</div>
+
+<!-- BOT GRID -->
+<div class="grid">
+
+<div class="card" onclick="openBot('CoachAI')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_coachai.png">
+</div>
+
+<div class="card" onclick="openBot('PromoPix')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_promopix.png">
+</div>
+
+<div class="card" onclick="openBot('SellerPro')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_sellerpro.png">
+</div>
+
+<div class="card" onclick="openBot('DesignDiva')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_designdiva.png">
+</div>
+
+<div class="card" onclick="openBot('GlamBot')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_glambot.png">
+</div>
+
+<div class="card" onclick="openBot('ChefGenie')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_chefgenie.png">
+</div>
+
+<div class="card" onclick="openBot('WriterSX')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_writersx.png">
+</div>
+
+<div class="card" onclick="openBot('BizBot')">
+<img src="https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_bizbot.png">
+</div>
+
+</div>
+
+<!-- DEMO MODAL -->
+<div class="demo-modal" id="demoModal">
+<div class="demo-inner">
+
+<div class="demo-left">
+<h2 id="botTitle"></h2>
+
+<div class="demo-box">
+<textarea id="userInput" placeholder="Try the demo..."></textarea>
+<button onclick="runDemo()">Run</button>
+</div>
+
+<div class="demo-box">
+<div id="output">Output will appear here...</div>
+</div>
+</div>
+
+<div class="demo-right">
+<img id="botCard">
+</div>
+
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+<h2>Owner Dashboard</h2>
+<p>Affiliate Clicks: <span id="affClicks">0</span></p>
+<p>Est Commission: $<span id="affEarn">0</span></p>
+<button onclick="simulateSale()">Simulate Sale</button>
+<button onclick="closeDash()">Close</button>
+</div>
+
+<script>
+
+let role="guest";
+let currentBot="";
+
+function login(){
+role="buyer";
+alert("Buyer login success");
+}
+
+function ownerLogin(){
+role="owner";
+alert("Owner full access granted");
+}
+
+function openBot(bot){
+if(role==="guest"){
+alert("Login required");
+return;
+}
+currentBot=bot;
+document.getElementById("botTitle").innerText=bot+" Demo";
+document.getElementById("botCard").src=
+"https://raw.githubusercontent.com/trustin326/AIBOT1011/main/assets/img/cards/card_"+bot.toLowerCase()+".png";
+document.getElementById("demoModal").style.display="flex";
+}
+
+function runDemo(){
+document.getElementById("output").innerText=
+currentBot+" result: " + document.getElementById("userInput").value;
+}
+
+function openDash(){
+if(role!=="owner"){
+alert("Owner only");
+return;
+}
+document.getElementById("dashboard").style.display="block";
+}
+
+function closeDash(){
+document.getElementById("dashboard").style.display="none";
+}
+
+let clicks=0;
+let earn=0;
+
+function simulateSale(){
+clicks++;
+earn+=8;
+document.getElementById("affClicks").innerText=clicks;
+document.getElementById("affEarn").innerText=earn;
+}
+
+</script>
+
+</body>
+</html>
