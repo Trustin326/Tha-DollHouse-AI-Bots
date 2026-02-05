@@ -103,7 +103,13 @@ grid-template-columns:1fr 420px;
 overflow:hidden;
 }
 
-/* LEFT PANEL */
+/* LEFT PANEL */<h3>Live AI Mode</h3>
+
+<input placeholder="Paste OpenAI API Key"
+onchange="LIVE_AI.saveKey(this.value)">
+
+<button onclick="runLive()">Run Live AI</button>
+
 .demo-left{
 padding:40px;
 }
