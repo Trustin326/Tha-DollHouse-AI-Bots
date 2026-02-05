@@ -177,7 +177,13 @@ Welcome to Tha DollHouse AI Bot Collection — your exclusive suite of intellige
 
 <div class="login-bar">
 <button class="login-btn" onclick="login()">Login</button>
-<button class="owner-btn" onclick="ownerLogin()">Owner Login</button>
+<button onclick="
+AUTH.login(prompt('Enter Email'));
+alert('Logged in as '+AUTH.role())
+">
+Login
+</button>
+
 <button onclick="openDash()">Dashboard</button>
 </div>
 </div>
