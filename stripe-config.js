@@ -1,0 +1,12 @@
+const STRIPE = {
+
+CoachAI:"ADD_STRIPE_LINK",
+PromoPix:"ADD_STRIPE_LINK",
+SellerPro:"ADD_STRIPE_LINK",
+DesignDiva:"ADD_STRIPE_LINK",
+GlamBot:"ADD_STRIPE_LINK",
+ChefGenie:"ADD_STRIPE_LINK",
+WriterSX:"ADD_STRIPE_LINK",
+BizBot:"ADD_STRIPE_LINK"
+
+}
